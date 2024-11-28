@@ -23,20 +23,43 @@ ssh accurate@192.168.1.45
 
 <b>Connect to a Wi-Fi Network or Mobile Hotspot:</b>
 
-bash '''
+```bash
 sudo nmcli dev wifi rescan
 nmcli dev wifi list
 sudo nmcli dev wifi connect "DeviceName" password "    "
-'''
+```
 
 <p><em>Note: Password is 4 spaces.</em></p>
 <b>Exit the SSH Session:</b>
 
-bash '''exit
-'''
+```bash exit
+```
 
 <b>Reconnect to the Raspberry Pi with the New IP Address:</b>
 
-bash '''
+```bash
 ssh accurate@<new_ip_address>
-'''
+```
+
+<b>Navigate to the Publisher Directory:</b>
+
+```bash
+cd Desktop/pigenset
+```
+<b>Run the Publisher:</b>
+
+```bash
+python3 main_publisher.py
+```
+
+<h4>2. Laptop/Server Setup (Subscriber)</h4>
+<b>Run the Subscriber Script:</b>
+<ul> <li>Go to: <code>http://localhost:8080/home</code></li> <li>Log in with the following credentials:</li> <ul> <li><strong>Username:</strong> dhananjay.p@accurateic.in</li> <li><strong>Password:</strong> accurate</li> </ul> </ul>
+<b>Use ngrok for Global Access:</b>
+
+```bash
+ngrok http 8080
+```
+
+<p>Share the public URL provided by ngrok (e.g., <code>https://<random-string>.ngrok-free.app</code>) with others.</p>
+
